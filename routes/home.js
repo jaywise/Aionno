@@ -8,6 +8,7 @@ router.get('/', (req, res, next)=>{
   res.render('home', {
     //add most recent models (with Angular?)
   });
+  console.log("home screen interactivity ready!");
 });
 
 module.exports = router;

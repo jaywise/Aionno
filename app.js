@@ -12,7 +12,8 @@ var photos = require('./routes/photos');
 var bodyparser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
+// var bootstrap = require('bootstrap');
 // require('dotenv').config(); //package to conceal DB credentials
 
 // //set up mongoose connection
