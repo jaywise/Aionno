@@ -13,13 +13,13 @@ var bodyparser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var mongoose = require("mongoose");
-require('dotenv').config(); //package to conceal DB credentials
+// require('dotenv').config(); //package to conceal DB credentials
 
-//set up mongoose connection
-mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PWD}@joshcluster1-shard-00-00-52qg0.mongodb.net:27017,joshcluster1-shard-00-01-52qg0.mongodb.net:27017,joshcluster1-shard-00-02-52qg0.mongodb.net:27017/cscie31?ssl=true&replicaSet=JoshCluster1-shard-0&authSource=admin`)
-  .then(() => { console.log('DB connection successful!');
-  })
-  .catch((err) => console.error(err));
+// //set up mongoose connection
+// mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PWD}@joshcluster1-shard-00-00-52qg0.mongodb.net:27017,joshcluster1-shard-00-01-52qg0.mongodb.net:27017,joshcluster1-shard-00-02-52qg0.mongodb.net:27017/cscie31?ssl=true&replicaSet=JoshCluster1-shard-0&authSource=admin`)
+//   .then(() => { console.log('DB connection successful!');
+//   })
+//   .catch((err) => console.error(err));
 
 
 // set up 'utility' middleware
