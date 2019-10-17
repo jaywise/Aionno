@@ -3,8 +3,20 @@
 //   var x = $(event.relatedTarget).text(); // Get the text of the element
 //   alert(x);
 // });
-$(document).ready(function(){
-  $("button").click(function(){
-    $("p").text("Hello world!");
-  });
+
+// $(function(){
+//   $("button").change(function(){
+//     var studentStateValue = "hello";
+//       alert( $('option:selected', this).text() );
+//     // var studentStateValue = $("#dropdownMenuButton1 option:selected").text();
+//     // console.log(studentStateValue);
+//     // var selection = $(this).text();
+//     // alert(studentStateValue);
+//   });
+// });
+
+$(function() {
+    $("button").change(function() {
+        alert( $('option:selected', this).text() );
+    });
 });
