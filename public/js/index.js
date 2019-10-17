@@ -16,7 +16,7 @@
 // });
 
 $(function() {
-    $("button").change(function() {
+    $("button").click(function() {
         alert( $('option:selected', this).text() );
     });
 });
