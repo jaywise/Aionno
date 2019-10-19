@@ -4,9 +4,12 @@
 //   alert(x);
 // });
 
+
+
 // $(function(){
 //   $("button").change(function(){
 //     var studentStateValue = "hello";
+
 //       alert( $('option:selected', this).text() );
 //     // var studentStateValue = $("#dropdownMenuButton1 option:selected").text();
 //     // console.log(studentStateValue);
@@ -16,7 +19,7 @@
 // });
 
 $(function() {
-    $("button").click(function() {
+    $(".top-dd").change(function() {
         alert( $('option:selected', this).text() );
     });
 });

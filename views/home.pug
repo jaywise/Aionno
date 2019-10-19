@@ -5,20 +5,18 @@ block content
     .row
       .mid-col-4
         h3 Student is
-        .dropdown
-          button#dropdownMenuButton1.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-            | Select description
-          .dropdown-menu(aria-labelledby='dropdownMenuButton')
-            a.dropdown-item(href='#') Anxious
-            a.dropdown-item(href='#') Tired
-            a.dropdown-item(href='#') Aggressive
+        select.top-dd(name='')
+          option(value='anxious') anxious
+          option(value='aggressive') aggressive
+          option(value='timid') timid
+          option(value='tired') tired
+          option(value='hyperactive') hyperactive
       .mid-col-4
         h3 Situation is
-        .dropdown
-          button#dropdownMenuButton2.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-            | Dropdown description
-          .dropdown-menu(aria-labelledby='dropdownMenuButton')
-            a.dropdown-item(href='#') Lecture
-            a.dropdown-item(href='#') Group work
-            a.dropdown-item(href='#') Independent work
+        select.top-dd(name='')
+          option(value='lecture') lecture
+          option(value='group-work') group work
+          option(value='independent-work') independent work
+          option(value='transition') transition
+          option(value='student-presentation') student presentation
   include strategylist
