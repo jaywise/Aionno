@@ -3,20 +3,21 @@ extends layout
 block content
   .container
     .row
-      .mid-col-4
+      .mid-col-4.top-dd
         h3 Student is
-        select.top-dd(name='')
+        select(name='')
           option(value='anxious') anxious
           option(value='aggressive') aggressive
           option(value='timid') timid
           option(value='tired') tired
           option(value='hyperactive') hyperactive
-      .mid-col-4
+      .mid-col-4.top-dd
         h3 Situation is
-        select.top-dd(name='')
+        select(name='')
           option(value='lecture') lecture
           option(value='group-work') group work
           option(value='independent-work') independent work
           option(value='transition') transition
           option(value='student-presentation') student presentation
+
   include strategylist

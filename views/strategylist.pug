@@ -1,6 +1,12 @@
 block content
   .container.strategy-blocks Strategy list here:
-    #strategy-block-1 first item
-    #strategy-block-2 second item
-    #strategy-block-3 third item
-    #strategy-block-4 fourth item
+    - const data1 = {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: "independent work"}
+    h2 does this work
+    h3= data1.name
+    p= data1.description
+    p= data1.studentState
+    p= data1.situationState
+
+    script(type='text/javascript').
+      var inews = JSON.parse('!{newsi}');
+      console.log(inews);
