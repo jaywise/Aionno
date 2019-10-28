@@ -19,5 +19,18 @@ block content
           option(value='independent-work') independent work
           option(value='transition') transition
           option(value='student-presentation') student presentation
+  .container.strategy-blocks Strategy list here:
+    - const data1 = {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: "independent work"}
+    h2 does this work
+    h3= data1.name
+    p= data1.description
+    p= data1.studentState
+    p= data1.situationState
 
-  include strategylist
+  #listOfObjects list goes here:
+
+    -  var data = "joshtest3";
+
+    p list is #{data}
+
+    p new field

@@ -2,13 +2,7 @@
 var express = require('express');
 var path = require('path');
 var url = require('url');
-var discover = require('./routes/discover');
-var review = require('./routes/review');
 var home = require('./routes/home');
-var create = require('./routes/create');
-var apiphotos = require('./routes/api/api-photos');
-var apireview = require('./routes/api/api-review');
-var photos = require('./routes/photos');
 var bodyparser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -40,14 +34,9 @@ app.set('view engine', 'pug');
 
 // set up routes and routers
 app.use('/static', express.static(path.join(__dirname, 'public')));
-app.use('/photos', photos);
-app.use('/discover', discover);
-app.use('/create', create);
-app.use('/review', review);
 app.use('/home', home);
 app.use('/', home);
-app.use('/api/photos', apiphotos);
-app.use('/api/review', apireview);
+
 
 // catch any remaining routing errors
 app.use((req, res, next)=>{
@@ -55,5 +44,8 @@ app.use((req, res, next)=>{
   err.status = 404;
   next(err);
 });
+
+
+
 
 module.exports = app;
