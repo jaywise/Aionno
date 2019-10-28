@@ -1,61 +1,38 @@
-// $(".dropdown").on("show.bs.dropdown", function(event){
-//   var x = $(event.relatedTarget).text(); // Get the text of the element
-//   alert(x);
-// });
-
-
-
-// $(function(){
-//   $("button").change(function(){
-//     var studentStateValue = "hello";
-
-//       alert( $('option:selected', this).text() );
-//     // var studentStateValue = $("#dropdownMenuButton1 option:selected").text();
-//     // console.log(studentStateValue);
-//     // var selection = $(this).text();
-//     // alert(studentStateValue);
-//   });
-// });
-
-// var allStrategies = [300 strategies go here];
-
-// var newArrayWithGrabedValue = [];
-
-
 rawData = [
           {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: "independent work"},
-          {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: "independent work"}
+          {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: "independent work"},
+          {name: "word webs", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: "group work"}
         ]
 
-var newArrayWithGrabbedValue = [];
-
+var filteredArray = [];
 var newValue = "";
 
 //grabs value from top dropdown
 $(function() {
-    $(".top-dd > select").change(function() {
+    $(".top-dd > select").change(function() {       // grab value from dropdown
         console.log( $('option:selected', this).text() );
         newValue = $('option:selected', this).text();
+
+        //create array of objects that match criteria selected by uesr
         var filteredArray = rawData.filter(function(item){
-          return item.studentState === newValue;
+          return item.studentState === newValue || item.situationState === newValue;
         })
         console.log("filtered array is: " + JSON.stringify(filteredArray));
 
-        // $.each(rawData, function(index, value) {
-        //   if(newValue == rawData[index].studentState) {
-        //     console.log("match found: " + JSON.stringify(value));
-        //     newArrayWithGrabbedValue.push(value);
-        //   };
-        // })
-        //   then replace with new data
-        // else if sitution strate
-        //   then replace with new data
-        // set totaldata array
-        // else
-        //   "sorry, no matches found"
-        var html_output = "";
-        html_output+="list goes here 2";
-        $('#listOfObjects').html(html_output);
+        //determine HTML to inject later
+        var htmlOutput = "";
+        if (filteredArray.length < 1) {
+            htmlOutput = "Sorry, no items matched your criteria. Please select again.";
+        }
+        else {
+          filteredArray.forEach(function(item) {
+            htmlOutput+="<h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p>";
+          });
+
+        }
+
+        //inject HTML into browser
+        $('#listOfObjects').html(htmlOutput);
     });
     // listen for side filter changes
       // match with attributes, then replace curatedList

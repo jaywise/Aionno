@@ -5,7 +5,8 @@ block content
     .row
       .mid-col-4.top-dd
         h3 Student is
-        select(name='')
+        select(name='studentState')
+          option(value='Any') any
           option(value='anxious') anxious
           option(value='aggressive') aggressive
           option(value='timid') timid
@@ -13,24 +14,12 @@ block content
           option(value='hyperactive') hyperactive
       .mid-col-4.top-dd
         h3 Situation is
-        select(name='')
+        select(name='situationState')
+          option(value='Any') any
           option(value='lecture') lecture
           option(value='group-work') group work
           option(value='independent-work') independent work
           option(value='transition') transition
           option(value='student-presentation') student presentation
-  .container.strategy-blocks Strategy list here:
-    - const data1 = {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: "independent work"}
-    h2 does this work
-    h3= data1.name
-    p= data1.description
-    p= data1.studentState
-    p= data1.situationState
-
-  #listOfObjects list goes here:
-
-    -  var data = "joshtest3";
-
-    p list is #{data}
-
-    p new field
+  .container.strategy-blocks Check out the strategies below:
+    #listOfObjects
