@@ -1,8 +1,31 @@
 body {
-  color:green;
-  font-family: Arial;
+  background-color: #9FD5E3;
 }
-h1 {
-  color:blue;
-  font-family: Arial;
-};
+
+h1.title {
+  color: white;
+  size: 50px;
+}
+
+.sub-title {
+  color: white;
+}
+
+.top-dd {
+  padding: 40px 100px 20px 0;
+}
+.top-dd h5 {
+  color: white;
+}
+
+.strategy-blocks {
+  padding: 20px 20px 20px 0;
+}
+.strategy-blocks .strategy-container {
+  padding: 15px;
+  background-color: white;
+  border-radius: 4px;
+  color: #175869;
+}
+
+/*# sourceMappingURL=style.css.map */

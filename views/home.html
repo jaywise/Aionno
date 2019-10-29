@@ -8,13 +8,14 @@
   </head>
   <body>
     <div class="container">
-      <h1>Aionno</h1>
-      <h3>Find better classroom strategies</h3>
+      <h1 class="title">Aionno</h1>
+      <h3 class="sub-title">Find better classroom strategies</h3>
       <div class="container">
         <div class="row">
-          <div class="mid-col-4 top-dd">
-            <h3>Student is</h3>
-            <select name="">
+          <div class="sm-col-4 top-dd">
+            <h5>Student is</h5>
+            <select id="studentState" name="studentState">
+              <option value="Any">any</option>
               <option value="anxious">anxious</option>
               <option value="aggressive">aggressive</option>
               <option value="timid">timid</option>
@@ -22,9 +23,10 @@
               <option value="hyperactive">hyperactive</option>
             </select>
           </div>
-          <div class="mid-col-4 top-dd">
-            <h3>Situation is</h3>
-            <select name="">
+          <div class="sm-col-4 top-dd">
+            <h5>Situation is</h5>
+            <select id="situationState" name="situationState">
+              <option value="Any">any</option>
               <option value="lecture">lecture</option>
               <option value="group-work">group work</option>
               <option value="independent-work">independent work</option>
@@ -33,17 +35,9 @@
             </select>
           </div>
         </div>
-      </div>
-      <div class="container strategy-blocks">Strategy list here:
-        <h2>does this work</h2>
-        <h3>affirmation</h3>
-        <p>create sense of belonging</p>
-        <p>timid</p>
-        <p>independent work</p>
-      </div>
-      <div id="listOfObjects">list goes here:
-        <p>list is joshtest3</p>
-        <p>new field</p>
+        <div class="container strategy-blocks">
+          <div id="listOfObjects"></div>
+        </div>
       </div>
     </div>
     <script type="application/javascript" src="../static/js/jquery.min.js"></script>

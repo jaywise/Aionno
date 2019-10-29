@@ -37,7 +37,7 @@ $(function() {
         }
         else {
           filteredArray.forEach(function(item) {
-            htmlOutput+="<h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p>";
+            htmlOutput+="<div class='strategy-container'><h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p></div>";
           });
 
         }

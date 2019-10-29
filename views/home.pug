@@ -3,23 +3,23 @@ extends layout
 block content
   .container
     .row
-      .mid-col-4.top-dd
-        h3 Student is
-        select(name='studentState')
+      .sm-col-4.top-dd
+        h5 Student is
+        select(id='studentState' name='studentState')
           option(value='Any') any
           option(value='anxious') anxious
           option(value='aggressive') aggressive
           option(value='timid') timid
           option(value='tired') tired
           option(value='hyperactive') hyperactive
-      .mid-col-4.top-dd
-        h3 Situation is
-        select(name='situationState')
+      .sm-col-4.top-dd
+        h5 Situation is
+        select(id='situationState' name='situationState')
           option(value='Any') any
           option(value='lecture') lecture
           option(value='group-work') group work
           option(value='independent-work') independent work
           option(value='transition') transition
           option(value='student-presentation') student presentation
-  .container.strategy-blocks Check out the strategies below:
-    #listOfObjects
+    .container.strategy-blocks
+      #listOfObjects
