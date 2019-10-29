@@ -8,6 +8,10 @@ var filteredArray = [];
 var situationValue = "";
 var studentValue = "";
 
+//reset dropdowns to "any"
+$("#studentState").prop('selectedIndex',0);
+$("#situationState").prop('selectedIndex',0);
+
 //grabs value from top dropdown
 $(function() {
     $(".top-dd > select").change(function(e) {       // grab value from dropdown
@@ -39,11 +43,11 @@ $(function() {
           filteredArray.forEach(function(item) {
             htmlOutput+="<div class='strategy-container'><h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p></div>";
           });
-
         }
 
         //inject HTML into browser
         $('#listOfObjects').html(htmlOutput);
+
     });
     // listen for side filter changes
       // match with attributes, then replace curatedList
