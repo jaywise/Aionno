@@ -1,21 +1,32 @@
 rawData = [
           {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: "independent work"},
           {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: "independent work"},
-          {name: "word webs", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: "group work"}
+          {name: "concept maps", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: "group work"}
         ]
 
 var filteredArray = [];
-var newValue = "";
+var situationValue = "";
+var studentValue = "";
 
 //grabs value from top dropdown
 $(function() {
-    $(".top-dd > select").change(function() {       // grab value from dropdown
+    $(".top-dd > select").change(function(e) {       // grab value from dropdown
         console.log( $('option:selected', this).text() );
-        newValue = $('option:selected', this).text();
+        console.log("target is " + e.currentTarget.name);
+
+        if (e.currentTarget.name == "situationState") {
+          situationValue = $('option:selected', this).text();
+        }
+        else if (e.currentTarget.name == "studentState") {
+          studentValue = $('option:selected', this).text();
+        }
+
+        console.log("situation value: " + situationValue);
+        console.log("student value: " + studentValue);
 
         //create array of objects that match criteria selected by uesr
         var filteredArray = rawData.filter(function(item){
-          return item.studentState === newValue || item.situationState === newValue;
+          return item.studentState === studentValue && item.situationState === situationValue;
         })
         console.log("filtered array is: " + JSON.stringify(filteredArray));
 
@@ -42,14 +53,3 @@ $(function() {
         //
 
 });
-
-
-
-
-// for loop
-//   each object in array
-//     print function tile
-//         item.propety
-//         item.property
-
-var newValue2 = "new value";
