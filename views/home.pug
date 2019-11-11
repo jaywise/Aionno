@@ -6,20 +6,22 @@ block content
       .sm-col-4.top-dd
         h5 Student is
         select(id='studentState' name='studentState')
-          option(value='Any' selected='selected') any
+          option(value='any' selected='selected') any
           option(value='anxious') anxious
           option(value='aggressive') aggressive
           option(value='timid') timid
           option(value='tired') tired
           option(value='hyperactive') hyperactive
+          option(value='confused') confused
       .sm-col-4.top-dd
         h5 Situation is
         select(id='situationState' name='situationState')
-          option(value='Any') any
+          option(value='any') any
           option(value='lecture') lecture
           option(value='group-work') group work
           option(value='independent-work') independent work
+          option(value='guided practice') guided practice
           option(value='transition') transition
           option(value='student-presentation') student presentation
-    .container.strategy-blocks
+    .strategy-blocks
       #listOfObjects

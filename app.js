@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var url = require('url');
 var home = require('./routes/home');
+var about = require('./routes/about');
 var bodyparser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
-// var bootstrap = require('bootstrap');
+
 // require('dotenv').config(); //package to conceal DB credentials
 
 // //set up mongoose connection
@@ -35,6 +36,7 @@ app.set('view engine', 'pug');
 // set up routes and routers
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/home', home);
+app.use('/about', about);
 app.use('/', home);
 
 

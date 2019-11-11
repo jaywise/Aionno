@@ -1,12 +1,14 @@
 rawData = [
-          {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: "independent work"},
-          {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: "independent work"},
-          {name: "concept maps", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: "group work"}
+          {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: ["independent work"]},
+          {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: ["independent work", "group work" ]},
+          {name: "concept maps", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: ["group work"]}
         ]
 
+
+
 var filteredArray = [];
-var situationValue = "";
-var studentValue = "";
+var situationValue = "any";
+var studentValue = "any";
 
 //reset dropdowns to "any"
 $("#studentState").prop('selectedIndex',0);
@@ -30,8 +32,8 @@ $(function() {
 
         //create array of objects that match criteria selected by uesr
         var filteredArray = rawData.filter(function(item){
-          return item.studentState === studentValue && item.situationState === situationValue;
-        })
+          return item.studentState == studentValue && item.situationState.indexOf(situationValue) >= 0; //determines if value exists anywhere in sub-array; if yes, add strategy to filteredArray
+        });
         console.log("filtered array is: " + JSON.stringify(filteredArray));
 
         //determine HTML to inject later

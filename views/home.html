@@ -10,32 +10,41 @@
     <div class="container">
       <h1 class="title">Aionno</h1>
       <h3 class="sub-title">Find better classroom strategies</h3>
+      <nav>
+        <ul>
+          <li>Discover</li>
+          <li>Contribute</li>
+          <li href="/about">About</li>
+        </ul>
+      </nav>
       <div class="container">
         <div class="row">
           <div class="sm-col-4 top-dd">
             <h5>Student is</h5>
             <select id="studentState" name="studentState">
-              <option value="Any" selected="selected">any</option>
+              <option value="any" selected="selected">any</option>
               <option value="anxious">anxious</option>
               <option value="aggressive">aggressive</option>
               <option value="timid">timid</option>
               <option value="tired">tired</option>
               <option value="hyperactive">hyperactive</option>
+              <option value="confused">confused</option>
             </select>
           </div>
           <div class="sm-col-4 top-dd">
             <h5>Situation is</h5>
             <select id="situationState" name="situationState">
-              <option value="Any">any</option>
+              <option value="any">any</option>
               <option value="lecture">lecture</option>
               <option value="group-work">group work</option>
               <option value="independent-work">independent work</option>
+              <option value="guided practice">guided practice</option>
               <option value="transition">transition</option>
               <option value="student-presentation">student presentation</option>
             </select>
           </div>
         </div>
-        <div class="container strategy-blocks">
+        <div class="strategy-blocks">
           <div id="listOfObjects"></div>
         </div>
       </div>
