@@ -1,9 +1,48 @@
-rawData = [
-          {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: ["independent work"]},
-          {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: ["independent work", "group work" ]},
-          {name: "concept maps", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: ["group work"]}
-        ]
+// rawData = [
+//           {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: ["independent work"]},
+//           {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: ["independent work", "group work" ]},
+//           {name: "concept maps", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: ["group work"]}
+//         ]
 
+
+rawData = [
+            {
+              name: "chunking",
+              studentState: [ "timid", "confused", "anxious" ],
+              situationState: [ "lecture", "guided practice", "assessment" ],
+              description: "breaking concepts down into smaller pieces",
+              gradeLevel: "4-12",
+              strategyType: "cognitive" ,
+              strategySubtype: [ "organization/restructuring" ],
+              contentArea: ["math", "natural sciences", "social sciences", "history", "writing", "reading", "foreign language" ],
+              implementationDifficulty: 6,
+              urlToResources: [ "https://www.facinghistory.org/resource-library/teaching-strategies/chunking" ],
+            },
+            {
+              name: "non-verbal signals",
+              studentState: [ "hyperactive", "angry" ],
+              situationState: [ "guided practice", "independent work", "transition", "group work" ],
+              description: "using gestures or space to focus the group and establish control",
+              gradeLevel: "4-10",
+              strategyType: "socio-emotional" ,
+              strategySubtype: [ "cognitive regulation" ],
+              contentArea: ["math", "natural sciences", "social sciences", "history", "writing", "reading", "foreign language" ],
+              implementationDifficulty: 2,
+              urlToResources: [ "https://teacher-blog.education.com/using-attention-signals-in-the-classroom-1cb638930d3e" ],
+            },
+            {
+              name: "affirmation",
+              studentState: [ "tired", "angry", "anxious", "confused" ],
+              situationState: [ "guided practice", "independent work", "presentation", "assessment" ],
+              description: "establishing identity and worth",
+              gradeLevel: "4-12",
+              strategyType: "socio-emotional" ,
+              strategySubtype: [ "identity/self-image" ],
+              contentArea: ["math", "natural sciences", "social sciences", "history", "writing", "reading", "foreign language" ],
+              implementationDifficulty: 2,
+              urlToResources: [ "https://assets2.hrc.org/welcoming-schools/documents/WS_Lesson_My_Many_Identities.pdf" ],
+            },
+          ]
 
 
 var filteredArray = [];
@@ -32,7 +71,8 @@ $(function() {
 
         //create array of objects that match criteria selected by uesr
         var filteredArray = rawData.filter(function(item){
-          return item.studentState == studentValue && item.situationState.indexOf(situationValue) >= 0; //determines if value exists anywhere in sub-array; if yes, add strategy to filteredArray
+          return (item.studentState.indexOf(studentValue) >= 0) &&
+          (item.situationState.indexOf(situationValue) >= 0); //determines if value exists anywhere in sub-array; if yes, add strategy to filteredArray
         });
         console.log("filtered array is: " + JSON.stringify(filteredArray));
 
