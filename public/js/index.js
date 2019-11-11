@@ -83,7 +83,7 @@ $(function() {
         }
         else {
           filteredArray.forEach(function(item) {
-            htmlOutput+="<div class='strategy-container'><h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p></div>";
+            htmlOutput+="<div class='strategy-container'><h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p><p> See more here: <a target='_blank' href=' " + item.urlToResources + " ' >Link</a></p></div>";
           });
         }
 
