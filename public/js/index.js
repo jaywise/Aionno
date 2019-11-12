@@ -1,9 +1,3 @@
-// rawData = [
-//           {name: "affirmation", description: "create sense of belonging", studentState: "timid", situationState: ["independent work"]},
-//           {name: "chunking", description: "breaking up content", studentState: "anxious", situationState: ["independent work", "group work" ]},
-//           {name: "concept maps", description: "drawing connections and relationships between concepts", studentState: "timid", situationState: ["group work"]}
-//         ]
-
 
 rawData = [
             {
@@ -44,6 +38,24 @@ rawData = [
             },
           ]
 
+//------ collapsible -------------
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+
+
+//------------ filtering ----------
 
 var filteredArray = [];
 var situationValue = "any";
@@ -88,7 +100,7 @@ $(function() {
         }
 
         //inject HTML into browser
-        $('#listOfObjects').html(htmlOutput);
+        $('#matchingStrategies').html(htmlOutput);
 
     });
     // listen for side filter changes
