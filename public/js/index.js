@@ -102,8 +102,13 @@ $(function() {
 
         // ------ populating array based on dropdown values -------
 
+        //if both dropdowns are "any", don't filter at all
+        if(studentValue == "any" && situationValue == "any"){
+          var newFilteredArray = rawData;
+        }
+
         //if no student value is specified, only narrow down list of strategies based on dropdown situation value
-        if(studentValue == "any"){
+        else if(studentValue == "any"){
           var newFilteredArray = rawData.filter(function(item){
             return (item.situationState.indexOf(situationValue) >= 0); //determines if value exists anywhere in sub-array; if yes, add strategy to filteredArray
           });
