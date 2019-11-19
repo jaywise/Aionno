@@ -2,62 +2,91 @@ extends layout
 
 block content
     .row
-      .sm-col-4.top-dd
-        h5 Student is
-        select.select-css(id='studentState' name='studentState')
-          option(value='any' selected='selected') any
-          option(value='anxious') anxious
-          option(value='angry') angry
-          option(value='timid') timid
-          option(value='tired') tired
-          option(value='hyperactive') hyperactive
-          option(value='confused') confused
-      .sm-col-4.top-dd
-        h5 Situation is
-        select.select-css(id='situationState' name='situationState')
-          option(value='any') any
-          option(value='lecture') lecture
-          option(value='group-work') group work
-          option(value='independent-work') independent work
-          option(value='guided practice') guided practice
-          option(value='transition') transition
-          option(value='student-presentation') student presentation
+      .col-sm-4
+        .top-dd
+          h5 Student is
+          select.select-css(id='studentState' name='studentState')
+            option(value='any' selected='selected') any
+            option(value='anxious') anxious
+            option(value='angry') angry
+            option(value='timid') timid
+            option(value='tired') tired
+            option(value='hyperactive') hyperactive
+            option(value='confused') confused
+      .col-sm-4
+        .top-dd
+          h5 Situation is
+          select.select-css(id='situationState' name='situationState')
+            option(value='any') any
+            option(value='lecture') lecture
+            option(value='group-work') group work
+            option(value='independent-work') independent work
+            option(value='guided practice') guided practice
+            option(value='transition') transition
+            option(value='student-presentation') student presentation
     .row
-      .sm-col-8
+      .col-sm-8
         .strategy-blocks
           #matchingStrategies
-      .sm-col-4.float-ri
-        #accordionExample.accordion
+      .col-sm-4.pull-sm-right
+        #filter-menu.accordion
           .card
             #headingOne.card-header
               h2.mb-0
                 button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne')
-                  | Collapsible Group Item #1
-            #collapseOne.collapse.show(aria-labelledby='headingOne' data-parent='#accordionExample')
-              .card-body
-                form
-                  input(type='checkbox', name='vehicle1', value='Bike')
-                  |  I have a bike
-                  br
-                  input(type='checkbox', name='vehicle2', value='Car')
-                  |  I have a car
-                  br
-                  input(type='checkbox', name='vehicle3', value='Boat', checked='')
-                  |  I have a boat
-                  br
+                  | Age of student
+            #collapseOne.collapse.show(aria-labelledby='headingOne' data-parent='#filter-menu-1')
+              .card-body#ageOfStudentValues
+                input(type='checkbox', name='ageOfStudent1', value='10-12', checked='')
+                |  10-12
+                br
+                input(type='checkbox', name='ageOfStudent2', value='13-15', checked='')
+                |  13-15
+                br
+                input(type='checkbox', name='ageOfStudent3', value='16-18', checked='')
+                |  16-18
+                br
           .card
             #headingTwo.card-header
               h2.mb-0
-                button.btn.btn-link.collapsed(type='button' data-toggle='collapse' data-target='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo')
-                  | Collapsible Group Item #2
-            #collapseTwo.collapse(aria-labelledby='headingTwo' data-parent='#accordionExample')
-              .card-body
-                | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+                button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseTwo' aria-expanded='true' aria-controls='collapseTwo')
+                  | Content area
+            #collapseTwo.collapse.show(aria-labelledby='headingTwo' data-parent='#filter-menu-2')
+              .card-body#contentAreaValues
+                input(type='checkbox', name='contentArea1', value='mathematics', checked='')
+                |  Mathematics
+                br
+                input(type='checkbox', name='contentArea2', value='reading', checked='')
+                |  Reading
+                br
+                input(type='checkbox', name='contentArea3', value='writing', checked='')
+                |  Writing
+                br
+                input(type='checkbox', name='contentArea4', value='natural sciences', checked='')
+                |  Natural sciences
+                br
+                input(type='checkbox', name='contentArea5', value='social sciences', checked='')
+                |  Social sciences
+                br
+                input(type='checkbox', name='contentArea6', value='English', checked='')
+                |  English
+                br
+                input(type='checkbox', name='contentArea7', value='history', checked='')
+                |  History
+                br
+                input(type='checkbox', name='contentArea8', value='foreign language', checked='')
+                |  Foreign language
+                br
           .card
             #headingThree.card-header
               h2.mb-0
-                button.btn.btn-link.collapsed(type='button' data-toggle='collapse' data-target='#collapseThree' aria-expanded='false' aria-controls='collapseThree')
-                  | Collapsible Group Item #3
-            #collapseThree.collapse(aria-labelledby='headingThree' data-parent='#accordionExample')
-              .card-body
-                | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+                button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapseThree' aria-expanded='true' aria-controls='collapseThree')
+                  | Strategy type
+            #collapseThree.collapse.show(aria-labelledby='headingThree' data-parent='#filter-menu-3')
+              .card-body#strategyTypeValues
+                input(type='checkbox', name='strategyType1', value='Cognitive', checked='')
+                |  Cognitive
+                br
+                input(type='checkbox', name='StrategyType2', value='Socio-emotional', checked='')
+                |  Socio-emotional
+                br

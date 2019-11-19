@@ -9,13 +9,16 @@ html
     .container
       h1.title Aionno
       h3.sub-title Find better classroom strategies
-      nav
-        ul
-          li
-            a(href="/home") Discover
-          li Contribute
-          li
-            a(href="/about") About
+      nav.row.navbar.navbar-expand-lg.navbar-light.bg-light
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarNavAltMarkup.collapse.navbar-collapse
+          .navbar-nav
+            a.nav-item.nav-link.active(href='/home')
+              | Discover
+              span.sr-only (current)
+            a.nav-item.nav-link.disabled(href='#') Contribute
+            a.nav-item.nav-link(href='/about') About
       block content
     script(type='application/javascript', src='../static/js/jquery.min.js')
     script(type='application/javascript', src='../static/js/popper.min.js')
