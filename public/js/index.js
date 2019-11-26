@@ -36,6 +36,30 @@ var rawData = [
               implementationDifficulty: 2,
               urlToResources: [ "https://assets2.hrc.org/welcoming-schools/documents/WS_Lesson_My_Many_Identities.pdf" ],
             },
+            {
+              name: "annotation",
+              studentState: [ "timid", "confused" ],
+              situationState: [ "guided practice", "independent work", "lecture" ],
+              description: "writing on text to add or clarify meaning",
+              ageOfStudent: [ "10-12", "13-15", "16-18" ],
+              strategyType: [ "cognitive" ],
+              strategySubtype: [ "transformation", "organization/restructuring" ],
+              contentArea: ["mathematics", "natural sciences", "social sciences", "English", "history", "writing", "reading", "foreign language" ],
+              implementationDifficulty: 4,
+              urlToResources: [ "https://lvp.digitalpromiseglobal.org/content-area/literacy-7-12/strategies/annotating-literacy-7-12/summary" ],
+            },
+            {
+              name: "role-play",
+              studentState: [ "tired", "anxious", "confused" ],
+              situationState: [ "guided practice", "group work", "student presentation", "assessment" ],
+              description: "acting out a situation",
+              ageOfStudent: [ "10-12", "13-15", "16-18" ],
+              strategyType: [ "cognitive" ],
+              strategySubtype: [ "practice/simulation", "elaboration/connection" ],
+              contentArea: ["mathematics", "natural sciences", "social sciences", "history", "writing", "English", "reading", "foreign language" ],
+              implementationDifficulty: 4,
+              urlToResources: [ "https://lvp.digitalpromiseglobal.org/content-area/literacy-7-12/strategies/acting-role-play-literacy-7-12/summary" ],
+            },
           ]
 
 
@@ -48,22 +72,22 @@ $(".strategy-container").click(function() {
 });
 
 
-
 //------------ filtering ----------
 
-var filteredArray = []; //initialize with clean raw data set
+var filteredArray = []   //initialize with clean raw data set
 var situationValue = "any";
 var studentValue = "any";
+
 // var strategyTypeValue = [];
-// var contentAreaValue = ["mathematics", "natural sciences", "social sciences", "history", "writing", "English", "reading", "foreign language" ];
-// var ageOfStudentValue = [];
 
-var allStudentStates = [ "timid", "confused", "anxious", "angry", "hyperactive", "tired" ];
-var allSituationStates = [ "timid", "confused", "anxious", "angry", "hyperactive", "tired" ];
+var contentAreaValues = [ "mathematics", "natural sciences", "social sciences", "history", "writing", "English", "reading", "foreign language" ]
 
-//reset dropdowns to "any"
+//reset all dropdowns to "any" upon refresh
 $("#studentState").prop('selectedIndex',0);
 $("#situationState").prop('selectedIndex',0);
+
+//resets all checkboxes to "checked" upon refresh
+$('input[type=checkbox]').prop('checked',true);
 
 //grabs value from top dropdown
 $(function() {
@@ -82,22 +106,6 @@ $(function() {
         console.log("situation value: " + situationValue);
         console.log("student value: " + studentValue);
 
-        //populating list with all values if "any" is selected from dropdown
-        // var rawData2 = [];
-
-        // if (situationValue == 'any') {
-        //   rawData2 = rawData.forEach(function(item){
-        //     item.situationState = allSituationStates;
-        //   });
-        // }
-        // else if (studentValue == 'any') {
-        //   rawData2 = rawData.forEach(function(item){
-        //     item.studentState = allStudentStates;
-        //   });
-        // }
-        // else {
-        //   rawData2 = rawData;
-        // }
 
 
         // ------ populating array based on dropdown values -------
@@ -131,14 +139,11 @@ $(function() {
 
         console.log("filtered array for dropdown only is: " + JSON.stringify(newFilteredArray));
 
-        // //creates modified dropdown array of objects that also reflects state of side filters
-        // var filteredArray2 = filteredArray1.filter(function(item){
-        //   return (item.studentState.indexOf(studentValue) >= 0) &&
-        //   (item.situationState.indexOf(situationValue) >= 0);
-        // });
-
-
-        // console.log("filtered array for dropdown and filters is: " + JSON.stringify(newFilteredArray));
+        //for each item in newFilteredArray
+          //if no match in age of student, hide
+          //else if if no match in contentarea, hide
+          //else if no match in strategytype, hide
+            //else show
 
 
         //determine HTML to inject later
@@ -157,6 +162,12 @@ $(function() {
 
         filteredArray = newFilteredArray; //overwrite global filtered array each time so that side menu can show hide based on possible strategies
 
+        //filter based on side menu
+
+    //listen for change event on side menu
+        //filter based on side menu --- function
+        //filter based on dropdown -- function
+        //print to html -- function
     });
     // listen for side filter changes
       // match with attributes, then replace curatedList
@@ -173,21 +184,33 @@ $(function() {
     //get generalized category name by slicing off end of input name attribute
     var selectedFilterName = e.target.name;
     var categoryName = selectedFilterName.substring(0, selectedFilterName.length - 1);
+    var categoryArray = contentAreaValues; // change to "categoryName + Values", but keep as array
 
     console.log("filter target is " + selectedFilterValue);
     console.log("filter name is " + categoryName);
-
     console.log(e);
 
+    //subtract or add checkbox attribute
+    if (e.target.checked == false) {
+      console.log("check is false");
+      var newArray = categoryArray.filter(e => e !== selectedFilterValue);    // remove unchecked item from array
+      contentAreaValues = newArray;   //change
+      console.log(contentAreaValues);
+    }
+    else {
+      console.log("check is true");
+      categoryArray.push(selectedFilterValue); // add checked item to array
+      contentAreaValues = categoryArray;  //change
+      console.log(contentAreaValues);
+    }
 
+    //for each item in FilteredArray
+      //if no match in age of student, hide
+      //else if if no match in contentarea, hide
+      //else if no match in strategytype, hide
+        //else show
 
-
-    // if(e.target.checked == "false"){
-    //   $(".strategy-container").css("display", "none");
-    // }
-    // else {
-    //   selectedFilter.
-    // }
+    //print to html
 
 
   });
