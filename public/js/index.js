@@ -78,9 +78,15 @@ var filteredArray = []   //initialize with clean raw data set
 var situationValue = "any";
 var studentValue = "any";
 
-// var strategyTypeValue = [];
+var valuesArray =  {
+  "ageOfStudentValues" : [ "10-12", "13-15", "16-18"] ,
 
-var contentAreaValues = [ "mathematics", "natural sciences", "social sciences", "history", "writing", "English", "reading", "foreign language" ]
+  "contentAreaValues" : [ "mathematics", "natural sciences", "social sciences", "history", "writing", "English", "reading", "foreign language" ],
+
+  "strategyTypeValues" : [ "cognitive", "socio-emotional" ] ,
+
+}
+
 
 //reset all dropdowns to "any" upon refresh
 $("#studentState").prop('selectedIndex',0);
@@ -184,7 +190,12 @@ $(function() {
     //get generalized category name by slicing off end of input name attribute
     var selectedFilterName = e.target.name;
     var categoryName = selectedFilterName.substring(0, selectedFilterName.length - 1);
-    var categoryArray = contentAreaValues; // change to "categoryName + Values", but keep as array
+    var categoryArray = categoryName + "Values";
+    var categoryArrayValues = valuesArray[categoryArray];
+
+    console.log("category values are " + categoryArrayValues);
+
+
 
     console.log("filter target is " + selectedFilterValue);
     console.log("filter name is " + categoryName);
@@ -193,15 +204,15 @@ $(function() {
     //subtract or add checkbox attribute
     if (e.target.checked == false) {
       console.log("check is false");
-      var newArray = categoryArray.filter(e => e !== selectedFilterValue);    // remove unchecked item from array
-      contentAreaValues = newArray;   //change
-      console.log(contentAreaValues);
+      var newArray = categoryArrayValues.filter(e => e !== selectedFilterValue);    // remove unchecked item from array
+      valuesArray[categoryArray] = newArray;
+      console.log(newArray);
     }
     else {
       console.log("check is true");
-      categoryArray.push(selectedFilterValue); // add checked item to array
-      contentAreaValues = categoryArray;  //change
-      console.log(contentAreaValues);
+      categoryArrayValues.push(selectedFilterValue); // add checked item to array
+      valuesArray[categoryArray] = categoryArrayValues;
+      console.log(categoryArrayValues);
     }
 
     //for each item in FilteredArray
