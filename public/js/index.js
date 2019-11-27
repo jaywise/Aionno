@@ -159,7 +159,7 @@ $(function() {
         }
         else {
           newFilteredArray.forEach(function(item) {
-            htmlOutput+="<a target='_blank' href=' " + item.urlToResources + " ' ><div  class='strategy-container'><h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p></div></a>";
+            htmlOutput+="<a target='_blank' href=' " + item.urlToResources + " ' ><div class='strategy-container' id='" + item.name + "'><h5>Name: " + item.name + " </h5><p>Description: " + item.description + "</p></div></a>";
           });
         }
 
@@ -168,19 +168,11 @@ $(function() {
 
         filteredArray = newFilteredArray; //overwrite global filtered array each time so that side menu can show hide based on possible strategies
 
-        //filter based on side menu
+        findSideFilterMatches();
 
-    //listen for change event on side menu
-        //filter based on side menu --- function
-        //filter based on dropdown -- function
-        //print to html -- function
     });
-    // listen for side filter changes
-      // match with attributes, then replace curatedList
-    //for each item in array
-        //add tile
-        // var allStrategies = [300 strategies go here];
-        //
+
+  //filter based on side menu changes
   $("#filter-menu").change(function(e){
 
     console.log("filter menu change");
@@ -215,14 +207,29 @@ $(function() {
       console.log(categoryArrayValues);
     }
 
-    //for each item in FilteredArray
-      //if no match in age of student, hide
-      //else if if no match in contentarea, hide
-      //else if no match in strategytype, hide
-        //else show
-
-    //print to html
-
+    findSideFilterMatches();
 
   });
 });
+
+//find matches in dropdown-generated array based on side filter selections; hide if no match
+function findSideFilterMatches() {
+  filteredArray.forEach(function(item){
+    if (item.ageOfStudent.filter(element => valuesArray.ageOfStudentValues.indexOf(element) !== -1).length == 0){  //determine if no matches exist between arrays
+      console.log("no matches for age of student " + item.name);
+      $("#" + item.name).hide();
+    }
+    else if (item.contentArea.filter(element => valuesArray.contentAreaValues.indexOf(element) !== -1).length == 0){  //determine if no matches exist between arrays
+      console.log("no matches for contet area " + item.name);
+      $("#" + item.name).hide();
+    }
+    else if (item.strategyType.filter(element => valuesArray.strategyTypeValues.indexOf(element) !== -1).length == 0){  //determine if no matches exist between arrays
+      console.log("no matches for strategy type " + item.name);
+      $("#" + item.name).hide();
+    }
+    else {
+      $("#" + item.name).show();
+      console.log("matches found for" + item.name);
+    }
+  });
+}
