@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var url = require('url');
 var home = require('./routes/home');
-var about = require('./routes/about');
+// var about = require('./routes/about');
 var bodyparser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -20,14 +20,14 @@ var mongoose = require('mongoose');
 
 // set up 'utility' middleware
 var app = express();
-app.use(cookieParser('cscie31-secret'));
-app.use(session({
-  secret:"cscie31",
-  resave: "true",
-  saveUninitialized: "true"
-}));
-app.use(bodyparser.urlencoded({extended: false}));
-app.use(bodyparser.json());
+// app.use(cookieParser('cscie31-secret'));
+// app.use(session({
+//   secret:"cscie31",
+//   resave: "true",
+//   saveUninitialized: "true"
+// }));
+// app.use(bodyparser.urlencoded({extended: false}));
+// app.use(bodyparser.json());
 
 // use pug view engine
 app.set('views', path.join(__dirname, 'views'));
@@ -36,7 +36,7 @@ app.set('view engine', 'pug');
 // set up routes and routers
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/home', home);
-app.use('/about', about);
+// app.use('/about', about);
 app.use('/', home);
 
 

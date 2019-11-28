@@ -197,13 +197,13 @@ $(function() {
     if (e.target.checked == false) {
       console.log("check is false");
       var newArray = categoryArrayValues.filter(e => e !== selectedFilterValue);    // remove unchecked item from array
-      valuesArray[categoryArray] = newArray;
+      valuesArray[categoryArray] = newArray;  //send to global variable
       console.log(newArray);
     }
     else {
       console.log("check is true");
       categoryArrayValues.push(selectedFilterValue); // add checked item to array
-      valuesArray[categoryArray] = categoryArrayValues;
+      valuesArray[categoryArray] = categoryArrayValues; //send to global variable
       console.log(categoryArrayValues);
     }
 
