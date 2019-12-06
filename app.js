@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var url = require('url');
 var home = require('./routes/home');
-// var about = require('./routes/about');
+var about = require('./routes/about');
 var bodyparser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -36,13 +36,17 @@ app.set('view engine', 'pug');
 // set up routes and routers
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/home', home);
-// app.use('/about', about);
+app.use('/about', about);
 app.use('/', home);
 
 
 // catch any remaining routing errors
 app.use((req, res, next)=>{
   var err = new Error('File cannot be found');
+  res.render('error', {
+    message: err.message,
+    error: err
+  });
   err.status = 404;
   next(err);
 });
