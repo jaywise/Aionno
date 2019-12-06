@@ -43,15 +43,13 @@ app.use('/', home);
 // catch any remaining routing errors
 app.use((req, res, next)=>{
   var err = new Error('File cannot be found');
+  err.status = 404;
+  res.status(err.status || 500);
   res.render('error', {
     message: err.message,
     error: err
   });
-  err.status = 404;
   next(err);
 });
-
-
-
 
 module.exports = app;
