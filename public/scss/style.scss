@@ -17,13 +17,11 @@ body {
   background-color: $background-color;
 }
 
-h1 {
-  &.title {
+.title {
     font-family: $primary-font;
     margin:10px 40px 10px 0;
     color: $primary-text-color;
     size: 50px;
-  }
 }
 
 .sub-title {
